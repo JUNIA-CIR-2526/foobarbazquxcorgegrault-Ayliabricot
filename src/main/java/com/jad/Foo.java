@@ -12,39 +12,49 @@ public class Foo {
 
     public Foo(Bar bar) {
         this.bar = bar;
-    }
-
-    public void addGrault() {
-        this.graults.add(new Grault(this));
-    }
-
-    public void addBaz(Baz baz) {
-        if (this.bazs.contains(baz)) return;
-        this.bazs.add(baz);
-    }
-
-    public void setBar(Bar bar) {
-        this.bar = bar;
-    }
-
-    public void setQux(Qux qux) {
-        this.qux = qux;
-    }
-
-    public Corge getCorge() {
-        return this.corge;
-    }
-
-    public void setCorge(Corge corge) {
-        this.corge = corge;
-    }
-
-    public void setBazs(Baz bazs[]) {
         this.bazs = new ArrayList<>();
-    }
-
-    public void setGraults(Grault graults[]) {
+        this.qux = new Qux();
         this.graults = new ArrayList<>();
     }
 
+    public void addBaz(Baz baz) {
+        this.bazs.add(baz);
+    }
+
+    public List<Baz> getBazs() {
+        return bazs;
+    }
+
+    public void addGrault() {
+        Grault grault = new Grault(this);
+        this.graults.add(grault);
+    }
+
+    public List<Grault> getGraults() {
+        return graults;
+    }
+
+    public Bar getBar() {
+        return bar;
+    }
+
+    public Qux getQux() {
+        return qux;
+    }
+
+    public Corge getCorge() {
+        return corge;
+    }
+
+    public void setCorge(Corge corge) {
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
+
+        this.corge = corge;
+
+        if (corge != null) {
+            corge.setFoo(this);
+        }
+    }
 }

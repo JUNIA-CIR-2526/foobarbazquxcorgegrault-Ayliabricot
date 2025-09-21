@@ -7,11 +7,11 @@ public class Corge {
         this.setFoo(foo);
     }
 
-    public void setFoo(Foo foo) {
-        this.foo = foo;
+    public Foo getFoo() {
+        return this.foo;
     }
 
-    public Foo getFoo(Foo foo) {
-        return this.foo;
+    public void setFoo(Foo foo) {
+        this.foo = foo;
     }
 }
