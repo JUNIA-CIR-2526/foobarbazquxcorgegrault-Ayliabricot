@@ -10,7 +10,15 @@ public class Foo {
     private Corge corge;
     private List<Grault> graults = new ArrayList<>();
 
-    public void wear(Baz baz) {
+    public Foo(Bar bar) {
+        this.bar = bar;
+    }
+
+    public void addGrault() {
+        this.graults.add(new Grault(this));
+    }
+
+    public void addBaz(Baz baz) {
         if (this.bazs.contains(baz)) return;
         this.bazs.add(baz);
     }
